@@ -1,0 +1,334 @@
+/*
+* jho_components.css
+* Contains styling for the ui elements
+*	- If its considered a component (i.e it can be reused as an element), then its stored here
+*/
+/**
+*	Hovercards
+*/
+.jho_hovercard{
+	display:none;
+	position:fixed;
+	right: 0;
+	width:318px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	background-color: #fff;
+	top: 50%;
+	left: 50%;
+	z-index:999;
+}
+.jho_hovercard h3{
+	padding: 5px 20px 0px 20px;
+	margin-top: 10px;
+  font-weight: 300;
+}
+.jho_hovercard p{
+	padding: 0px 10px 0px 20px;
+  margin:0;
+  font-weight: 200;
+}
+.jho_hovercard a{
+  color: #00BCD4;
+  padding: 5px 10px 10px 20px;
+  display:block;
+  font-size: 15px;
+}
+.jho_hovercard a:hover{
+  transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+  color: #616161;
+}
+/* End hovercards */
+/**
+*	SVG lightbulb section
+*/
+.jho_idea-hub{
+  margin: 50px 20px;
+}
+.jho_ideabulb{
+  margin-top: 30px;
+	max-height: 500px;
+	cursor: pointer;
+}
+
+/* End light bulb */
+/***
+* Blog specific
+*/
+.jho_blog-about p{
+	padding-right:20px;
+}
+.jho_sidebar-selfie{
+	max-height: 100% ;
+	max-width:100%;
+	height: auto;
+	width: auto;
+	resize: both;
+}
+/* End blog specific */
+/**
+* Home specific
+*/
+.jho_text-transition{
+	background-color: #eeeeee;
+ 	text-align: center;
+ 	border-bottom: 1px solid #ddd;
+ }
+ .jho_text-transition h3{
+ 	font-weight:300;
+ 	margin-top:24px;
+ }
+ .jho_text-transition p{
+ 	font-weight: 200;
+ 	padding: 20px 40px;
+ 	font-size: 16px;
+ 	margin-bottom: 30px
+ }
+ .jho_text-transition .row{
+ 	margin-top:45px;
+ }
+/* End home specific */
+/*
+* 	Containers 
+*/
+.container {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+@media (min-width: 768px) { .container { width: 750px; } }
+@media (min-width: 992px) { .container { width: 970px; } }
+@media (min-width: 1200px){ .container { width: 1170px; } }
+
+.row {
+	margin-right: -15px;
+	margin-left: -15px;
+}
+.row:after{
+	clear:both;
+	display: table;
+  	content: " ";
+}
+.row:before{
+	display: table;
+	content: " ";
+}
+/*
+*	Transitioning
+*/
+.jho_text-spacer{
+	font-weight: 300;
+	margin: 50px 0;
+}
+@media all and (max-width: 768px){ .jho_large-screen-only{ display:none; } }
+@media all and (min-width: 768px){ .jho_small-screen-only{ display:none; } }
+
+ /**
+ *	Header
+ */
+ .jho_intro-face{
+    position: absolute;
+    top:347px;
+    left: calc(50% - 57px);
+    z-index: 22;
+ }
+ .jho_intro-face img:last-of-type{
+    position: absolute;
+    display:none;
+ }
+ .jho_intro-face:hover img:last-of-type{
+    display:block;
+ }
+ .jho_intro-face:hover img:first-of-type{
+    display: none;
+ }
+
+ .jho_header-image{
+ 	background-color: #808080;
+  	background: no-repeat center;
+  	background-attachment: scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cove57
+    -o-background-size: cover;
+ 	min-width:100%;
+ 	height:400px;
+ 	margin-bottom:0;
+ 	display:block;
+ }
+ .jho_header-image h1{
+  margin:0;
+ 	font-size: 60px;
+ 	color: #fff;
+ 	text-align: center;
+  padding: 160px 50px;
+ }
+ @media (min-width: 768px){ .jho_header-image h1{ padding: 180px 100px; } }
+ @media (max-width: 768px){ .jho_header-image h1{ font-size: 55px; padding: 165px 75px; } }
+ @media (max-width: 536px){ .jho_header-image h1{ font-size: 50px; padding: 150px 60px; } } 
+ @media (max-width: 336px){ .jho_header-image h1{ font-size: 45px; padding: 145px 50px; } } 
+ /*
+ * Navigation bar
+ */
+.jho_desktop-header-nav{
+	float:right;
+	margin-right: 50px;
+	margin-top: 35px;
+}
+
+@media all and (max-width: 768px){ .jho_desktop-header-nav{ display:none; } }
+
+.jho_desktop-header-nav a{
+	padding: 20px 30px;
+	text-decoration: none;
+	color: #fff;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+.jho_desktop-header-nav a:hover{
+	text-decoration: none;
+  transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+}
+/* End navbar stuff */
+/*
+ * Hamburger menu with animation
+ */
+.jho_menu-container{
+  position: absolute;
+  top: 14px;
+  right: 40px;
+  cursor: pointer;
+}
+.jho_menu-container a{
+  position:absolute;
+  right:35pxjho_men;
+  top:1px;
+  color: #444;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.jho_menu-container a:hover{
+  text-decoration:none;
+  color: #444;
+}
+.jho_closing-menu {
+  width: 30px;
+  height: 20px;
+  -webkit-transition: all 0.3s;
+	        transition: all 0.3s;
+}
+.jho_closing-menu span {
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: #444;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+.jho_closing-menu span:before,
+.jho_closing-menu span:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #444;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s;
+	        transition: all 0.3s;
+}
+.jho_closing-menu span:before {
+  -webkit-transform: translateY(-8px);
+	        transform: translateY(-8px);
+}
+.jho_closing-menu span:after {
+  -webkit-transform: translateY(8px);
+	        transform: translateY(8px);
+}
+.jho_closing-menu.open{
+  -webkit-transform: rotate(135deg);
+	        transform: rotate(135deg);
+}
+.jho_closing-menu.open span:before {
+  -webkit-transform: rotate(90deg);
+	        transform: rotate(90deg);
+}
+.jho_closing-menu.open span:after {
+  -webkit-transform: rotate(90deg);
+	        transform: rotate(90deg);
+}
+/* Hamburger menu end */
+
+/*
+*	Boilerplate css - i like to know what i use
+*/
+
+.post-preview > a {
+  color: #404040;
+}
+.post-preview > a:hover,
+.post-preview > a:focus {
+  text-decoration: none;
+  color: #0085a1;
+}
+
+.post-preview > a > .post-subtitle {
+  margin: 0;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.post-preview > a > .post-title {
+  font-size: 30px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+ @media only screen and (min-width: 768px) {
+  .post-preview > a > .post-title {
+    font-size: 36px;
+  }
+}
+ .intro-header {
+  background-color: #808080;
+  background: no-repeat center;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.intro-header .post-heading h1 {
+  font-size: 35px;
+}
+.intro-header .site-heading,
+.intro-header .page-heading {
+  padding: 100px 50px;
+  color: white;
+}
+.intro-header .site-heading,
+.intro-header .page-heading {
+  text-align: center;
+}
+.intro-header .site-heading h1,
+.intro-header .page-heading h1 {
+  margin-top: 0;
+  font-size: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+  .intro-header .page-heading h1 {
+    font-size: 80px;
+  }
+}
+
+.intro-header .page-heading .subheading {
+  font-size: 24px;
+  line-height: 1.1;
+  display: block;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  margin: 10px 0 0;
+}
