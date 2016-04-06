@@ -3,8 +3,50 @@
  *
  * contains javascript for the ui behavior
  */
+ /**
+ *	Contact for specific
+ */
+ function initContactForm(){
+ 	$(".jho_greyarea").click(function(e){
+ 		if(e.target.tagName.toLowerCase() === "center"){
+ 			$(".jho_greyarea").toggleClass("hidden");
+
+ 		}
+	});
 
 
+	$(".jho_submit-button").click(function(){
+		$(".jho_statusmessage").text("Your request has been sent!");
+		$(".jho_submit-button").prop("disabled", true);
+		$(".jho_contact").bind('ajax:complete', function() {
+			$(".jho_statusmessage").text("Your request was successfull!");
+   		});
+	});
+ }
+
+ /**
+ *	Navigation
+ */
+function initNavigation(){
+	$('a[href^="#"]').click(function(e){
+		e.preventDefault();
+		switch($(e.target).text().toLowerCase()){
+			case "welcome": 
+				$('html, body').animate({
+    				scrollTop: 0,
+				}, 500);
+			break;
+			case "about":
+				$('html, body').animate({
+    				scrollTop: $(".jho_table-hub").offset().top - 100,
+				}, 500);
+			break;
+			case "contact":
+				$(".jho_greyarea").toggleClass("hidden");
+			break;
+		}
+	});	
+}
 /**
 *	From: http://lcdsantos.github.io/jquery-drawsvg/
 */	
@@ -136,21 +178,20 @@ function animateTable(){
     });
     function animate_arrow(){
     	$table.drawsvg('animate');
-    	console.log("h");
     }
 	$(window).on('scroll', function() {
 			var begin = -$table.offset().top + $(window).scrollTop() + $(".jho_table-hub").height();
 			if(begin > 0){
 				$(window).off('scroll');
 				$table.drawsvg('animate');
-				initNavbar(); // the "off" function turns off the navbar scroll listener
+				initNavbar(); // the "off" function turns off the navbar scroll listener aswell
 			}
 	});
 }
 /**
 *	For the navbar
 */
-var nullPos = $(".jho_header-menu").offset().top + 8;
+var nullPos = $(".jho_header-menu").offset().top + 14; // margin 15px - border 1px
 function initNavbar(){
 	$(".jho_header-menu a").click(function(e){
 		var li = $(e.target.parentNode);
@@ -159,6 +200,7 @@ function initNavbar(){
 		$(".menu__item--current").removeClass("menu__item--current");
 		li.addClass("menu__item--current");
 	});
+
 	// remembers the initial position
 	$(window).scroll(function(){
 		if(nullPos < $(window).scrollTop()){
@@ -185,10 +227,11 @@ function initBurger(){
 /**
 *	For the interactive lightbulb
 */
-var card_text = [ 
+function initBulb(){
+	var card_text = [ 
 		{ 	// Base
 			head: "Educational foundation",
-			body: "Knowing calculus and university physics might not be the most important skills in software development, but helps in understanding how things work and therefore how to solve certain problems. A solid foundation upon which the rest of the skills are based upon."
+			body: "Knowing calculus and university physics might not be the most important skills in software development, but helps in understanding how things work and therefore how to solve certain problems. A solid foundation of which the rest of the skills are based upon."
 		},
 		{	// Screen-cog 
 			head: "Foundational engineering knowledge", 
@@ -222,8 +265,7 @@ var card_text = [
 			head: "Storage and cloud",
 			body: "Modern applications are created faster, cheaper and more optimized than before. Altough i am well versed in SQL, i am also familiar with NoSQL technologies such as MongoDB, Redis and RethinkDB. I also know a thing or two about different cloud platforms and technologies, which are important to consider in today's marked.",
 		}
-];
-function initBulb(){
+	];
 	if(is_touch_device()){
 		// changes text to tap on touch screens
 		$(".jho_idea-hub center p").text("Tap to take a closer look");
@@ -236,7 +278,7 @@ function initBulb(){
 	function updateCardPosition(passedEvent){
 		var card = $(".jho_hovercard");
 		var elem = $( passedEvent.target );
-		// Checks if screen is smaller than card or if we have a touch device
+		// Checks if screen is smaller than 2x card or if we have a touch device
 		if($( document ).width() >  $(".jho_hovercard").width()*2 || !is_touch_device()){
 			// Continous update
 			$( elem ).on( "mousemove", function( e ) {
@@ -281,7 +323,7 @@ function initBulb(){
 			// This also means we need to re-query the group -- 
 			$((".jho_bulb-group" + index)).css("opacity", 0.5);
 
-				setCardText(card_text[index].head, card_text[index].body); // Needs to be done before position (uses actual size)
+			setCardText(card_text[index].head, card_text[index].body); // Needs to be done before position (uses actual size)
 			updateCardPosition(e); 
 			showCard(); 
 		}, function(e){
@@ -299,6 +341,8 @@ $(document).ready(function(){
 
 	initBurger();
 	initNavbar();
+	initNavigation();
 	animateTable();
 	initBulb();
+	initContactForm();
 });
