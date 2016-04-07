@@ -27,22 +27,34 @@
  /**
  *	Navigation
  */
+ function updateNavbar(li){
+ 	if(li){
+		if( li.hasClass("menu__item--current") ) // alreddy selected
+			return;
+		$(".menu__item--current").removeClass("menu__item--current");
+		li.addClass("menu__item--current");
+	}
+ }
 function initNavigation(){
 	$('a[href^="#"]').click(function(e){
 		e.preventDefault();
+
 		switch($(e.target).text().toLowerCase()){
 			case "welcome": 
 				$('html, body').animate({
     				scrollTop: 0,
 				}, 500);
+				updateNavbar($(".menu__link:eq(0)").parent());
 			break;
 			case "about":
 				$('html, body').animate({
     				scrollTop: $(".jho_table-hub").offset().top - 100,
 				}, 500);
+				updateNavbar($(".menu__link:eq(1)").parent());
 			break;
 			case "contact":
 				$(".jho_greyarea").toggleClass("hidden");
+				updateNavbar($(".menu__link:eq(3)").parent());
 			break;
 		}
 	});	
@@ -193,13 +205,16 @@ function animateTable(){
 */
 var nullPos = $(".jho_header-menu").offset().top + 14; // margin 15px - border 1px
 function initNavbar(){
-	$(".jho_header-menu a").click(function(e){
+
+	/**
+	*	Functionality moved to navigation
+	*$(".jho_header-menu a").click(function(e){
 		var li = $(e.target.parentNode);
 		if( li.hasClass("menu__item--current") ) // alreddy selected
 			return;
 		$(".menu__item--current").removeClass("menu__item--current");
 		li.addClass("menu__item--current");
-	});
+	});*/
 
 	// remembers the initial position
 	$(window).scroll(function(){
