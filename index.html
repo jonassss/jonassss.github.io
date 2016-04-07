@@ -173,21 +173,21 @@
         <form class="jho_contact" action="https://formspree.io/jonas.ovrebo@gmail.com" method="POST">
           <ul>
             <li><div class="group">      
-              <input name="name" type="text" required>
+              <input name="name" type="text" id="cform_name" required>
               <span class="highlight"></span>
               <span class="bar"></span>
               <label>Name</label>
             </div></li>
             <li><div class="group">      
-              <input type="email" name="_replyto" required />
+              <input name="_replyto" type="text" id="cform_email" required>
               <span class="highlight"></span>
               <span class="bar"></span>
               <label>Email</label>
             </div></li>
             <li>
-              <textarea placeholder="Message" name="message" cols="50"></textarea>
+              <textarea placeholder="Message" name="message" id="cform_message"></textarea>
             </li>
-            <li><span class="jho_statusmessage"></span><input class="jho_submit-button" type="submit" value="Send"></li>
+            <li><span class="jho_statusmessage"></span><br><input class="jho_submit-button" type="submit" value="Send"></li>
           </ul>
         </form>
 			</div>

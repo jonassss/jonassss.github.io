@@ -6,6 +6,12 @@
  /**
  *	Contact for specific
  */
+
+
+
+
+ 
+
  function initContactForm(){
  	$(".jho_greyarea").click(function(e){
  		if(e.target.tagName.toLowerCase() === "center"){
@@ -15,7 +21,32 @@
 	});
 
 
-	$(".jho_submit-button").click(function(){
+	$(".jho_submit-button").click(function(e){
+		e.preventDefault();
+
+		var err = "";
+ 		var validName = /^([A-Z][a-z]{1,20}[ ]?)*$/g.test($("#cform_name").val());
+ 		var validEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i.test($("#cform_email").val());
+ 		
+
+ 		if(!(validName && validEmail)){
+ 			$(".jho_statusmessage").text("Name and email invalid");
+ 			return;
+ 		}else if(!validName){
+ 			$(".jho_statusmessage").text("Name invalid");
+ 			return;
+ 		}else if(!validEmail){
+ 			$(".jho_statusmessage").text("Email invalid");
+ 			return;
+ 		}
+
+ 		if($("#cfom_message").text().length > 25){
+ 			$(".jho_statusmessage").text("Message too short"); 
+ 			return;
+ 		}
+
+
+ 		$(".jho_contact").submit();
 		$(".jho_statusmessage").text("Your request has been sent!");
 		$(".jho_submit-button").prop("disabled", true);
 		$(".jho_contact").bind('ajax:complete', function() {
