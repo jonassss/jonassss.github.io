@@ -211,17 +211,9 @@ function is_touch_device() {
 function animateTable(){
     var $table = $(".svg_table").drawsvg({
     	callback: function(){
-    		animate_arrow();
-    	}
-    }),
-    $table_arrow = $(".svg_table-arrow").drawsvg({
-    	callback: function(){
-    		//animate_arrow();
+    		// Make button visible - make invisible on click - 
     	}
     });
-    function animate_arrow(){
-    	$table.drawsvg('animate');
-    }
 	$(window).on('scroll', function() {
 			var begin = -$table.offset().top + $(window).scrollTop() + $(".jho_table-hub").height();
 			if(begin > 0){

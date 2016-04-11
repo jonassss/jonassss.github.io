@@ -430,7 +430,8 @@ footer .jho_img-wrapper:hover .visible{
   height:100%;
   background-color: #fff;/*#4caf50*/
   z-index:10;
-  border: 0;
+  border-left: 0;
+  border-right:0;
   width: 0px;
 }
 .jho_hidden-menu div{
