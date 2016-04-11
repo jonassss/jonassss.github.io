@@ -253,7 +253,6 @@ function initNavbar(){
 			        }
 		     }
 	   });
-
 }
 
 /**
@@ -366,20 +365,20 @@ function initBulb(){
       			updateCardPosition(e);
       			showCard();
 
+            var hasInitialized = false;
             if(is_touch_device){
-              $(window).off("click");
+              $(document).on('click touchstart', function () {
+                if(Number.isInteger($(e.target).attr("class").slice(-1))){
+                  hideCard(undefined);
+                  $(document).off("click touchstart");
+                }
+              });
             }
+            hasInitialized = true;
         },mouseleave:function (e) {
             var target_group = $((".jho_bulb-group" + $(e.target).attr("class").slice(-1)));
             target_group.css("opacity", 1);
             hideCard(target_group);
-
-            if(is_touch_device){
-              $(window).click(function(){ // mouseleave event is bound to DOM - so the svg itself in this case
-        			  hideCard(target_group);
-                $(window).off("click");
-              });
-            }
         }
     },false);
 	}
