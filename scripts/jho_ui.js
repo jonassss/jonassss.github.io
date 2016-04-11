@@ -365,16 +365,15 @@ function initBulb(){
       			updateCardPosition(e);
       			showCard();
 
-            var hasInitialized = false;
             if(is_touch_device){
-              $(document).on('click touchstart', function () {
-                if(Number.isInteger($(e.target).attr("class").slice(-1))){
+              $(document).on('click touchstart touchend touch', function (event) {
+                var bulbTouch = $(event.target).is("path") || $(event.target).is("text");
+                if( !bulbTouch ){
                   hideCard(undefined);
-                  $(document).off("click touchstart");
+                  $(document).off("click touchstart touchend touch");
                 }
               });
             }
-            hasInitialized = true;
         },mouseleave:function (e) {
             var target_group = $((".jho_bulb-group" + $(e.target).attr("class").slice(-1)));
             target_group.css("opacity", 1);
