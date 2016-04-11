@@ -6,8 +6,8 @@
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-touch-callout: none;
 }
-html { 
-  background: url('../img/hovedside_banner_heim.svg') no-repeat center fixed; 
+html {
+  background: url('../img/hovedside_banner_heim.svg') no-repeat center fixed;
   background-color: #43a047;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -62,15 +62,15 @@ textarea{
 }
 .group input:focus{ outline:none; }
 .group label{
-  color:#999; 
+  color:#999;
   font-size:18px;
   font-weight:normal;
   position:absolute;
   pointer-events:none;
   left:5px;
   top:10px;
-  transition:0.2s ease all; 
-  -moz-transition:0.2s ease all; 
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
   -webkit-transition:0.2s ease all;
 }
 .group input:focus ~ label, .group input:valid ~ label{
@@ -208,35 +208,35 @@ footer .jho_img-wrapper:hover .visible{
 .jho_submit-button:hover{
   background-color: #4CAF50;
 }
-.group{ 
-  position:relative; 
+.group{
+  position:relative;
   margin-bottom: 25px;
 }
 .bar    { position:relative; display:block; width:300px; }
 .bar:before, .bar:after     {
   content:'';
-  height:2px; 
+  height:2px;
   width:0;
-  bottom:1px; 
+  bottom:1px;
   position:absolute;
   background:#4CAF50;
-  transition:0.2s ease all; 
-  -moz-transition:0.2s ease all; 
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
   -webkit-transition:0.2s ease all;
 }
 .bar:before {
   left:50%;
 }
 .bar:after {
-  right:50%; 
+  right:50%;
 }
 
 /* HIGHLIGHTER ================================== */
 .highlight {
   position:absolute;
-  height:60%; 
-  width:100px; 
-  top:25%; 
+  height:60%;
+  width:100px;
+  top:25%;
   left:0;
   pointer-events:none;
   opacity:0.5;
@@ -257,7 +257,7 @@ footer .jho_img-wrapper:hover .visible{
 
 /**
 * Vector table
-*/ 
+*/
 .jho_table-hub{
   margin-top: 100px;
 }
@@ -273,15 +273,15 @@ footer .jho_img-wrapper:hover .visible{
 .jho_table-text p{
   color:#333;
 }
-@media(max-width: 700px){ 
-  .jho_table{ 
-    float:none; 
+@media(max-width: 700px){
+  .jho_table{
+    float:none;
   }
-  .jho_table-text{ 
-    float:none; 
-    width: 73.5%; 
-    text-align: center; 
-  } 
+  .jho_table-text{
+    float:none;
+    width: 73.5%;
+    text-align: center;
+  }
 }
 /**
 * Content wrapper
@@ -308,9 +308,9 @@ footer .jho_img-wrapper:hover .visible{
  @media (min-width: 768px){ .jho_site-intro h1{ font-size: 3.5em; padding: 185px 95px 0 95px; } }
  @media (max-width: 768px){ .jho_site-intro h1{ font-size: 2.6em; padding: 170px 55px 0 55px; } }
  @media (max-width: 650px){ .jho_site-intro h1{ font-size: 2.5em; padding: 165px 50px 0 50px; } }
- @media (max-width: 536px){ .jho_site-intro h1{ font-size: 2.4em; padding: 160px 45px 0 45px; } } 
- @media (max-width: 615px){ 
-  .jho_header-menu{ display:none; } 
+ @media (max-width: 536px){ .jho_site-intro h1{ font-size: 2.4em; padding: 160px 45px 0 45px; } }
+ @media (max-width: 615px){
+  .jho_header-menu{ display:none; }
   .jho_table-hub{ margin-top: 0px; }
 }
 .jho_header-menu.bound{
@@ -356,7 +356,6 @@ footer .jho_img-wrapper:hover .visible{
 .jho_hamburger-menu a{
   position:absolute;
   right:35px;
-  top:3px;
   color: #333;
   font-size: 16px;
   text-transform: uppercase;
@@ -403,8 +402,8 @@ footer .jho_img-wrapper:hover .visible{
           transform: translateY(8px);
 }
 .jho_closing-menu.open{
-  -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 .jho_closing-menu.open span:before {
   -webkit-transform: rotate(90deg);
@@ -420,7 +419,7 @@ footer .jho_img-wrapper:hover .visible{
   width:300px;
   border: 1px solid #eee;
 }
-@media (max-width: 768px){ .jho_hidden-menu.show{ width: 66%; } } 
+@media (max-width: 768px){ .jho_hidden-menu.show{ width: 66%; } }
 .jho_hidden-menu{
   -webkit-transition: all .25s ease;
             transition: all .25s ease;
@@ -464,7 +463,7 @@ footer .jho_img-wrapper:hover .visible{
   transition: color 0.4s;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
-  padding: 20px 20px; 
+  padding: 20px 20px;
 }
 .jho_hidden-menu li a:hover{
   color: #9900cc;
@@ -525,7 +524,7 @@ footer .jho_img-wrapper:hover .visible{
  * Navbar - menu
  * Original by Hendra Susanto; https://twitter.com/benhanks040888
  * Modified for the purpose of the site
- */ 
+ */
  .menu__list {
   list-style: none;
   padding:0;
@@ -570,7 +569,7 @@ footer .jho_img-wrapper:hover .visible{
 .menu__link::after {
   content: '';
   position: absolute;
-  bottom: -5px;
+  bottom: -2px;
   left: 0;
   width: 100%;
   height: 3px;
@@ -584,9 +583,8 @@ footer .jho_img-wrapper:hover .visible{
 .menu__link::before {
   background: #333;
   -webkit-transition-delay: 0.4s;
-  transition-delay: 0.4s; 
+  transition-delay: 0.4s;
 }
 .menu__link::after {
   background: #9900cc;
 }
- 

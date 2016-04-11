@@ -10,7 +10,7 @@
 
 
 
- 
+
 
  function initContactForm(){
  	$(".jho_greyarea").click(function(e){
@@ -27,7 +27,7 @@
 		var err = "";
  		var validName = /^([A-Z][a-z]{1,20}[ ]?)*$/g.test($("#cform_name").val());
  		var validEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i.test($("#cform_email").val());
- 		
+
 
  		if(!(validName && validEmail)){
  			$(".jho_statusmessage").text("Name and email invalid");
@@ -41,7 +41,7 @@
  		}
 
  		if($("#cfom_message").text().length > 25){
- 			$(".jho_statusmessage").text("Message too short"); 
+ 			$(".jho_statusmessage").text("Message too short");
  			return;
  		}
 
@@ -71,7 +71,7 @@ function initNavigation(){
 		e.preventDefault();
 
 		switch($(e.target).text().toLowerCase()){
-			case "welcome": 
+			case "welcome":
 				$('html, body').animate({
     				scrollTop: 0,
 				}, 500);
@@ -88,11 +88,11 @@ function initNavigation(){
 				updateNavbar($(".menu__link:eq(3)").parent());
 			break;
 		}
-	});	
+	});
 }
 /**
 *	From: http://lcdsantos.github.io/jquery-drawsvg/
-*/	
+*/
 (function($) {
   'use strict';
 
@@ -202,7 +202,7 @@ function initNavigation(){
 function is_touch_device() {
   return 'ontouchstart' in window
       || navigator.maxTouchPoints	// works on IE10/11 and Surface
-      || (window.DocumentTouch && document instanceof DocumentTouch);       
+      || (window.DocumentTouch && document instanceof DocumentTouch);
 };
 
 /**
@@ -211,7 +211,7 @@ function is_touch_device() {
 function animateTable(){
     var $table = $(".svg_table").drawsvg({
     	callback: function(){
-    		// Make button visible - make invisible on click - 
+    		// Make button visible - make invisible on click -
     	}
     });
 	$(window).on('scroll', function() {
@@ -228,17 +228,6 @@ function animateTable(){
 */
 var nullPos = $(".jho_header-menu").offset().top + 14; // margin 15px - border 1px
 function initNavbar(){
-
-	/**
-	*	Functionality moved to navigation
-	*$(".jho_header-menu a").click(function(e){
-		var li = $(e.target.parentNode);
-		if( li.hasClass("menu__item--current") ) // alreddy selected
-			return;
-		$(".menu__item--current").removeClass("menu__item--current");
-		li.addClass("menu__item--current");
-	});*/
-
 	// remembers the initial position
 	$(window).scroll(function(){
 		if(nullPos < $(window).scrollTop()){
@@ -266,17 +255,17 @@ function initBurger(){
 *	For the interactive lightbulb
 */
 function initBulb(){
-	var card_text = [ 
+	var card_text = [
 		{ 	// Base
 			head: "Educational foundation",
 			body: "Knowing calculus and university physics might not be the most important skills in software development, but helps in understanding how things work and therefore how to solve certain problems. A solid foundation of which the rest of the skills are based upon."
 		},
-		{	// Screen-cog 
-			head: "Foundational engineering knowledge", 
+		{	// Screen-cog
+			head: "Foundational engineering knowledge",
 			body: "I have foundational knowledge about how computers work, which helps understand problems and therefore speeds up development. In particular, i have knowledge about scripting and commands on the linux platform."
 		},
 		{	// { }, languages
-			head: "Computer languages", 
+			head: "Computer languages",
 			body: "I dont have lots of experience working with one platform or language, however i have a great understanding about how the different languages work and how to utilize their traits. Most of my experience is with C like languages like Java, C# and C++. "
 		},
 		{	// Web dev
@@ -284,11 +273,11 @@ function initBulb(){
 			body: "I have knowledge about developing for and in the web. This includes both patterns and frameworks, but also network programming aswell as knowledge about networking protocols and technologies. The frameworks include spring, nodejs, angularjs and .net.",
 		},
 		{	// Mobile
-			head: "Mobile integration", 
+			head: "Mobile integration",
 			body: "Many of us cant think of a world without their cellphone. It is therefore important to have the knowhow to make mobile applications. I have expereience with the android platform and know how to create platform independent web applications.",
 		},
 		{   //sysdev
-			head: "Systems development", 
+			head: "Systems development",
 			body: "I have hands on experience working with distributed and larger scale systems. I can recognize patterns and know methologies around constructing and maintaining larger scale systems. Knowing agile and lean development speeds up the process, but nothing beats hard work.",
 		},
 		{ 	// people
@@ -299,7 +288,7 @@ function initBulb(){
 			head: "Additional knowledge",
 			body: "Some things are too specific to list here, and some personal traits just cannot be explained with words. Even if you have an open source project or just want to ask some questions, i am probably interested. Don't be afraid to ask!",
 		},
-		{	// cloud 
+		{	// cloud
 			head: "Storage and cloud",
 			body: "Modern applications are created faster, cheaper and more optimized than before. Altough i am well versed in SQL, i am also familiar with NoSQL technologies such as MongoDB, Redis and RethinkDB. I also know a thing or two about different cloud platforms and technologies, which are important to consider in today's marked.",
 		}
@@ -321,7 +310,7 @@ function initBulb(){
 			// Continous update
 			$( elem ).on( "mousemove", function( e ) {
 	  			var ypos = (e.pageY - $(window).scrollTop());
-	  			if(ypos > ($(window).height()/2)){ 
+	  			if(ypos > ($(window).height()/2)){
 	  				ypos -= card.height()+5;
 	  			}else{
 	  				ypos += +5;
@@ -331,7 +320,7 @@ function initBulb(){
 			});
 		}else{ // on small screens and touch devices
 			var ypos = (passedEvent.pageY - $(window).scrollTop());
-	  		if(ypos > ($(window).height()/2)){ 
+	  		if(ypos > ($(window).height()/2)){
 				card.css("top", 43);
 	  		}else{
 				card.css("top", $(window).height()-card.height());
@@ -345,31 +334,30 @@ function initBulb(){
 		$(".jho_hovercard").css("display", "block");
 	}
 	// Removes the event listener that we attach on larger screens and hides the card
-	function hideCard(elem){ 
+	function hideCard(elem){
 		if(elem != undefined){ // incase screen was resized (aka we call it anyway)
-			$( elem ).off("mousemove"); 
+			$( elem ).off("mousemove");
 		}
 		$(".jho_hovercard").css("display", "none");
 	}
-	
-	
-	for(var i = 0; i < 9; ++i){
-			$((".jho_bulb-group" + i)).hover(function(e){
-			// its wierd, but "i" is not snapshotted into the function (i.e acts like a reference type)
-			// this means we need to find the index some other way - costly, but ok
-			var index = $(e.target).attr("class").slice(-1); //returns last character of classname
-			// This also means we need to re-query the group -- 
-			$((".jho_bulb-group" + index)).css("opacity", 0.5);
 
-			setCardText(card_text[index].head, card_text[index].body); // Needs to be done before position (uses actual size)
-			updateCardPosition(e); 
-			showCard(); 
-		}, function(e){
-			var target_group = $((".jho_bulb-group" + $(e.target).attr("class").slice(-1)));
-			target_group.css("opacity", 1);
-			// hide the card
-			hideCard(target_group);
-		});
+	for(var i = 0; i < 9; ++i){
+
+    $((".jho_bulb-group" + i)).on({
+          mouseenter: function (e) {
+            var index = $(e.target).attr("class").slice(-1);
+      			$((".jho_bulb-group" + index)).css("opacity", 0.5);
+
+      			setCardText(card_text[index].head, card_text[index].body); // Needs to be done before position (uses actual size)
+      			updateCardPosition(e);
+      			showCard();
+        },mouseleave:function (e) {
+            var target_group = $((".jho_bulb-group" + $(e.target).attr("class").slice(-1)));
+    			  target_group.css("opacity", 1);
+    			  // hide the card
+    			  hideCard(target_group);
+        }
+    },false);
 	}
 }
 
