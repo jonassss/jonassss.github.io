@@ -366,9 +366,11 @@ function initBulb(){
       			showCard();
 
             if(is_touch_device){
+              var displayedElement = $((".jho_bulb-group" + $(e.target).attr("class").slice(-1)));
               $(document).on('click touchstart touchend touch', function (event) {
                 var bulbTouch = $(event.target).is("path") || $(event.target).is("text");
                 if( !bulbTouch ){
+                  displayedElement.css("opacity", 1);
                   hideCard(undefined);
                   $(document).off("click touchstart touchend touch");
                 }
