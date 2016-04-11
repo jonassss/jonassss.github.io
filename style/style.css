@@ -52,6 +52,20 @@ textarea{
   height: 75px;
   font-size:18px;
 }
+.jho_button{
+  width: 300px;
+  background: none;
+  outline: none;
+  font-size: 18px;
+  height: 40px;
+  border: 2px solid #333;
+  -webkit-transition: background-color 0.25s linear;
+  -moz-transition: background-color 0.25s linear;
+  transition: background-color 0.25s linear;
+}
+.jho_button:hover{
+  background-color: #4CAF50;
+}
 .group input{
   font-size:18px;
   padding:10px 10px 10px 5px;
@@ -283,6 +297,14 @@ footer .jho_img-wrapper:hover .visible{
     text-align: center;
   }
 }
+.jho_rerun{
+    font-size: 12px;
+    height: 30px;
+    border:1px solid #333;
+    width: 100px;
+    opacity: 0;
+}
+
 /**
 * Content wrapper
 */

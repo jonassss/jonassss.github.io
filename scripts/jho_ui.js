@@ -209,11 +209,21 @@ function is_touch_device() {
 *	Animation for table svg
 */
 function animateTable(){
-    var $table = $(".svg_table").drawsvg({
+  var $table = $(".svg_table").drawsvg({
     	callback: function(){
-    		// Make button visible - make invisible on click -
-    	}
-    });
+         $(".jho_rerun").animate({
+           opacity: 1,
+         }, 500, function(){
+           $(".jho_rerun").click(function(){
+             $table.drawsvg('animate');
+             $(".jho_rerun").off("click");
+             $(".jho_rerun").animate({
+               opacity: 0,
+             }, 500);
+           });
+         });
+      }
+  });
 	$(window).on('scroll', function() {
 			var begin = -$table.offset().top + $(window).scrollTop() + $(".jho_table-hub").height();
 			if(begin > 0){
@@ -351,11 +361,21 @@ function initBulb(){
       			setCardText(card_text[index].head, card_text[index].body); // Needs to be done before position (uses actual size)
       			updateCardPosition(e);
       			showCard();
+
+            if(is_touch_device){
+              $(document).off("click");
+            }
         },mouseleave:function (e) {
             var target_group = $((".jho_bulb-group" + $(e.target).attr("class").slice(-1)));
-    			  target_group.css("opacity", 1);
-    			  // hide the card
-    			  hideCard(target_group);
+            target_group.css("opacity", 1);
+            hideCard(target_group);
+
+            if(is_touch_device){
+              $(document).click(function(){ // mouseleave event is bound to DOM - so the svg itself in this case
+        			  hideCard(target_group);
+                $(document).off("click");
+              });
+            }
         }
     },false);
 	}
