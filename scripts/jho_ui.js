@@ -3,6 +3,13 @@
  *
  * contains javascript for the ui behavior
  */
+
+ //  From Modernizr, found here: https://github.com/Modernizr/Modernizr/blob/master/feature-detects/touchevents.js
+ function is_touch_device() {
+   return 'ontouchstart' in window
+       || navigator.maxTouchPoints	// works on IE10/11 and Surface
+       || (window.DocumentTouch && document instanceof DocumentTouch);
+ };
  /**
  *	Contact for specific
  */
@@ -198,12 +205,7 @@ function initNavigation(){
   };
 }(jQuery));
 
-//  From Modernizr, found here: https://github.com/Modernizr/Modernizr/blob/master/feature-detects/touchevents.js
-function is_touch_device() {
-  return 'ontouchstart' in window
-      || navigator.maxTouchPoints	// works on IE10/11 and Surface
-      || (window.DocumentTouch && document instanceof DocumentTouch);
-};
+
 
 /**
 *	Animation for table svg
@@ -224,6 +226,7 @@ function animateTable(){
          });
       }
   });
+
 	$(window).on('scroll', function() {
 			var begin = -$table.offset().top + $(window).scrollTop() + $(".jho_table-hub").height();
 			if(begin > 0){
@@ -236,20 +239,21 @@ function animateTable(){
 /**
 *	For the navbar
 */
-var nullPos = $(".jho_header-menu").offset().top + 14; // margin 15px - border 1px
 function initNavbar(){
-	// remembers the initial position
-	$(window).scroll(function(){
-		if(nullPos < $(window).scrollTop()){
-			if(!$(".jho_header-menu").hasClass("bound")){
-				$(".jho_header-menu").toggleClass("bound");
-			}
-		}else if(nullPos > $(window).scrollTop()){
-			if($(".jho_header-menu").hasClass("bound")){
-				$(".jho_header-menu").toggleClass("bound");
-			}
-		}
-	});
+  var $menu = $(".jho_header-menu");
+     var nullPos = $(".jho_header-menu").offset().top + 14; // margin 15px - border 1px
+	   $(window).scroll(function(){
+		     if(nullPos < $(window).scrollTop()){
+			        if(!$menu.hasClass("bound")){
+				            $menu.toggleClass("bound");
+			        }
+		     }else if(nullPos > $(window).scrollTop()){
+			        if($menu.hasClass("bound")){
+				            $menu.toggleClass("bound");
+			        }
+		     }
+	   });
+
 }
 
 /**
@@ -373,7 +377,7 @@ function initBulb(){
             if(is_touch_device){
               $(document).click(function(){ // mouseleave event is bound to DOM - so the svg itself in this case
         			  hideCard(target_group);
-                $(document).off("click");
+                $(window).off("click");
               });
             }
         }
