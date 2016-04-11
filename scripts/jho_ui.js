@@ -367,7 +367,7 @@ function initBulb(){
       			showCard();
 
             if(is_touch_device){
-              $(document).off("click");
+              $(window).off("click");
             }
         },mouseleave:function (e) {
             var target_group = $((".jho_bulb-group" + $(e.target).attr("class").slice(-1)));
@@ -375,7 +375,7 @@ function initBulb(){
             hideCard(target_group);
 
             if(is_touch_device){
-              $(document).click(function(){ // mouseleave event is bound to DOM - so the svg itself in this case
+              $(window).click(function(){ // mouseleave event is bound to DOM - so the svg itself in this case
         			  hideCard(target_group);
                 $(window).off("click");
               });
