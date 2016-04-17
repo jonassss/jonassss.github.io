@@ -13,12 +13,6 @@
  /**
  *	Contact for specific
  */
-
-
-
-
-
-
  function initContactForm(){
  	$(".jho_greyarea").click(function(e){
  		if(e.target.tagName.toLowerCase() === "center"){
@@ -58,6 +52,7 @@
 		$(".jho_submit-button").prop("disabled", true);
 		$(".jho_contact").bind('ajax:complete', function() {
 			$(".jho_statusmessage").text("Your request was successfull!");
+      alert("Contact submisssion sent!");
    		});
 	});
  }
