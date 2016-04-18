@@ -24,16 +24,11 @@
 
 	$(".jho_submit-button").click(function(e){
 		e.preventDefault();
-
 		var err = "";
- 		var validName = /^([A-Z][a-z]{1,20}[ ]?)*$/g.test($("#cform_name").val());
+ 		var validName = /^([A-Za-z][a-z]{2,20}[ ]?)*$/g.test($("#cform_name").val());
  		var validEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i.test($("#cform_email").val());
 
-
- 		if(!(validName && validEmail)){
- 			$(".jho_statusmessage").text("Name and email invalid");
- 			return;
- 		}else if(!validName){
+ 		if(!validName){
  			$(".jho_statusmessage").text("Name invalid");
  			return;
  		}else if(!validEmail){
@@ -41,19 +36,12 @@
  			return;
  		}
 
- 		if($("#cfom_message").text().length > 25){
- 			$(".jho_statusmessage").text("Message too short");
- 			return;
- 		}
-
-
  		$(".jho_contact").submit();
 		$(".jho_statusmessage").text("Your request has been sent!");
 		$(".jho_submit-button").prop("disabled", true);
 		$(".jho_contact").bind('ajax:complete', function() {
 			$(".jho_statusmessage").text("Your request was successfull!");
-      alert("Contact submisssion sent!");
-   		});
+   	});
 	});
  }
 
@@ -193,9 +181,7 @@ function initNavigation(){
     return this.each(function() {
       var data = $.data(this, pluginName);
 
-      ( data && ''+method === method && data[method] ) ?
-        data[method](args) :
-        $.data(this, pluginName, new DrawSvg(this, method));
+      ( data && ''+method === method && data[method] ) ? data[method](args) : $.data(this, pluginName, new DrawSvg(this, method));
     });
   };
 }(jQuery));
@@ -321,7 +307,7 @@ function initBulb(){
 	  			if(ypos > ($(window).height()/2)){
 	  				ypos -= card.height()+5;
 	  			}else{
-	  				ypos += +5;
+	  				ypos += 5;
 	  			}
 	  			card.css("top",ypos);
 				card.css("left",e.pageX+5);
